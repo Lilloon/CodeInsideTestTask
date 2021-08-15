@@ -52,7 +52,6 @@
       "error",
       "never",
       {
-        "ts": "never",
         "tsx": "never",
         "js": "never",
         "jsx": "never"

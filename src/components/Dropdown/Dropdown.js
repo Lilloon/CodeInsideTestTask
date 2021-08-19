@@ -1,45 +1,29 @@
 import React, { useState } from 'react'
 import ClickOutside from '@codecraftkit/clickoutside'
 import styles from './Dropdown.module.scss'
-import ActiveArrowClosed from './ActiveArrowClosed.svg'
-import ActiveArrowOpened from './ActiveArrowOpened.svg'
-import BlockedArrow from './BlockedArrow.svg'
+import arrowClosed from './arrowClosed.svg'
+import arrowOpened from './arrowOpened.svg'
 
 const Dropdown = ({
   title,
-  items = [],
-  multiSelect = false,
-  Block = false,
-  clearSelectedToStore,
-  addSelectedToStore,
+  items = [
+    {
+      id: 1,
+      value: 'О студенте',
+    },
+    {
+      id: 2,
+      value: 'Выйти',
+    },
+  ],
+
 }) => {
   const [open, setOpen] = useState(false)
   const [selection, setSelection] = useState([])
-  const [selectedValue, setValue] = useState('')
-  const toggle = () => setOpen(!open)
   const close = () => setOpen(false)
   function handleOnClick(item) {
-    if (!selection.some((current) => current.id === item.id)) {
-      if (!multiSelect) {
-        setSelection([item])
-        setValue(item.value)
-        addSelectedToStore(item.value)
-        close()
-      } else {
-        setSelection([...selection, item])
-      }
-    } else {
-      let selectionAfterRemoval = selection;
-      selectionAfterRemoval = selectionAfterRemoval.filter((current) => current.id !== item.id)
-      setSelection([...selectionAfterRemoval])
-      setValue(0)
-      clearSelectedToStore()
-      if (!multiSelect) close()
-    }
-  }
-
-  function CheckEnter(e) {
-    if (e.key === 'Enter') { toggle() }
+    setSelection([item])
+    close()
   }
 
   function isItemInSelection(item) {
@@ -50,29 +34,28 @@ const Dropdown = ({
   }
 
   function chooseArrow() {
-    if (Block) {
-      return (BlockedArrow)
-    }
-    if (!open) { return (ActiveArrowClosed) } return (ActiveArrowOpened)
+    if (!open) { return (arrowClosed) } return (arrowOpened)
   }
   return (
-    <div className={styles.dd_wrapper}>
+    <div
+      className={styles.dd_wrapper}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
       <ClickOutside handleAction={close}>
         <div
           tabIndex={0}
-          className={`${selectedValue && styles.noPlaceHolder} ${styles.dd_header} ${Block && styles.Blocked} ${!Block && styles.Active} ${open && styles.Opened} ${!open && styles.Closed}`}
+          className={` ${styles.dd_header} `}
           role="button"
-          onKeyPress={CheckEnter}
-          onClick={!Block ? toggle : undefined}
         >
           <div className={styles.dd_header_title}>
-            <p className={styles.dd_header__title__bold}>{selectedValue || title}</p>
+            <p>{title}</p>
           </div>
           <div className={styles.dd_header__action}>
             <img src={chooseArrow()} alt="" className={styles.img} />
           </div>
         </div>
-        {open && !Block && (
+        {open && (
         <ul className={styles.dd_list}>
           {
                     items.map((item) => (

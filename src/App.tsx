@@ -5,7 +5,9 @@ import './App.module.scss'
 
 function App() {
   return (
-    <Header />
+    <>
+      <Header />
+    </>
   );
 }
 

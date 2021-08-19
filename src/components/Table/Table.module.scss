@@ -1,0 +1,14 @@
+@import '../../mixins/fonts.scss';
+
+table {
+    @include Montserrat;
+    table-layout: fixed;
+    width: 50%;
+    line-height: 20px;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 5px;
+    border: 2px solid rgb(190, 184, 184);
+  }

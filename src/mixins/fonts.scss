@@ -9,7 +9,11 @@
 }
 
 
-@mixin MontserratSemiBlod {
+@mixin MontserratSemiBold {
     font-family: Montserrat-SemiBold;
     line-height: 0px;
+}
+
+@mixin Montserrat {
+    font-family: Montserrat; 
 }

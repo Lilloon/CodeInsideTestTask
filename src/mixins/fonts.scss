@@ -1,0 +1,15 @@
+@font-face{
+    font-family: Montserrat;
+    src: url('../fonts/montserrat/static/Montserrat-Regular.ttf');
+}
+
+@font-face{
+    font-family: Montserrat-SemiBold;
+    src: url('../fonts/montserrat/static/Montserrat-SemiBold.ttf');
+}
+
+
+@mixin MontserratSemiBlod {
+    font-family: Montserrat-SemiBold;
+    line-height: 0px;
+}

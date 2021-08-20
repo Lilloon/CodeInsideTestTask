@@ -1,0 +1,58 @@
+@import "../../mixins/fonts.scss";
+
+.TextButton{
+    @include MontserratSemiBold;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 22px;    
+    height: 44px;
+    transition: 0.4s ease;
+    cursor: pointer;
+    border: 1px solid #e9ba00;
+    background: #FFCD00;
+    border-radius: 22px;
+    color:white ;
+    &:hover{
+        border: 1px solid #ffd83b;
+        background: #ffe168;   
+    }
+    &:active{
+        transition: 0.1s;
+        border: 1px solid #c79f01;
+        background: #e0b401; 
+    
+    }
+    &.OnlyBorders{
+        border: 1px solid #FFCD00;
+        box-sizing: border-box;
+        border-radius: 22px;
+        background: white;
+        color: #FFCD00;
+        &:hover{
+            border: 1px solid #ffd83b;
+            color: #ffd83b;
+            background: rgb(243, 242, 242);
+
+        }
+        &:active{
+            border: 1px solid #c79f01;
+            color: #c79f01;
+        }
+        
+    }
+    &.OnlyText{
+        background: none;
+        border:none;
+        color:#cfa600;
+        &:hover{
+            color:#ffd83b;
+        }
+        &:active{
+            color: #c79f01;
+        }
+        
+    }
+}

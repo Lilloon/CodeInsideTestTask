@@ -3,16 +3,37 @@ import React from 'react'
 import styles from './Input.module.scss'
 
 interface InputProps {
-  placeHolder: string,
+  text: string,
   onChange: any,
   value: any,
+  inputsNumber: number,
+  type: string,
+  errorMessage:string,
 }
 
 const Input: React.FC<InputProps> = ({
-  placeHolder, onChange, value,
+  text,
+  onChange,
+  value,
+  inputsNumber,
+  type,
+  errorMessage,
 }) => {
+  const checkType = () => {
+    switch (type) {
+      case 'Any':
+        return (
+          (value === '' || (value.length >= 3 && value.length <= 16)) ? undefined : styles.Error
+        )
+      case 'number':
+        // eslint-disable-next-line no-restricted-globals
+        return isNaN(Number(value)) ? styles.Error : undefined
+      default:
+        return undefined
+    }
+  }
   const handleChange = (e:any) => {
-    if (onChange) onChange(e.target.value);
+    if (onChange) onChange(e.target.value, inputsNumber);
   }
   return (
     <div
@@ -20,11 +41,12 @@ const Input: React.FC<InputProps> = ({
       tabIndex={0}
       role="button"
     >
+      <p className={styles.text}>{text}</p>
+      <p className={styles.errorMessage}>{errorMessage}</p>
       <input
         onChange={handleChange}
-        className={`${styles.InputWindow} ${styles.Active}`}
+        className={`${styles.InputWindow} ${styles.Active} ${checkType()}`}
         type="text"
-        placeholder={placeHolder}
         value={value}
       />
     </div>

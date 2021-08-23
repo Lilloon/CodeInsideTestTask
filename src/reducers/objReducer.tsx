@@ -10,7 +10,17 @@ const defaultState = {
       numOf3: 3,
       numOf2: 1,
       missed: 5,
-    }],
+    },
+    {
+      id: 2,
+      objName: 'Русский язык',
+      numOf5: 8,
+      numOf4: 2,
+      numOf3: 1,
+      numOf2: 0,
+      missed: 2,
+    },
+  ],
 };
 
 export default (
@@ -24,7 +34,7 @@ export default (
       return {
         ...state,
         ObjList:
-        [...state.ObjList.filter((item) => (item.id !== action?.$payload))],
+        [...state.ObjList.filter((item) => (!(action?.$payload.includes(item.id))))],
       }
     default:
       return state;

@@ -17,9 +17,9 @@ const TextButton: React.FC<TextButtonProps> = ({
 }) => (
   <button
     className={`${styles.TextButton}
-    ${styleButton === 1 && styles.Default}
-    ${styleButton === 2 && styles.OnlyBorders}
-    ${styleButton === 3 && styles.OnlyText}`}
+    ${styleButton === 1 ? styles.Default : undefined}
+    ${styleButton === 2 ? styles.OnlyBorders : undefined}
+    ${styleButton === 3 ? styles.OnlyText : undefined}`}
     type="button"
     onClick={() => handlerClick(func)}
   >

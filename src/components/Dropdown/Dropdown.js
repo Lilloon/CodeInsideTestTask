@@ -1,28 +1,45 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useCookies } from 'react-cookie'
 import ClickOutside from '@codecraftkit/clickoutside'
+import { useDispatch } from 'react-redux'
+import { removeUser } from '../../actions/userActions'
 import styles from './Dropdown.module.scss'
 import arrowClosed from './arrowClosed.svg'
 import arrowOpened from './arrowOpened.svg'
 
 const Dropdown = ({
   title,
-  items = [
+}) => {
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookie, removeCookie] = useCookies(['user'])
+  const dispatch = useDispatch()
+  let history = useHistory()
+  const items = [
     {
       id: 1,
       value: 'О студенте',
+      func: () => {
+        history.push('/about')
+      },
     },
     {
       id: 2,
       value: 'Выйти',
+      func: () => {
+        dispatch(removeUser())
+        removeCookie('user')
+        history.push('/login')
+      },
     },
-  ],
+  ]
 
-}) => {
   const [open, setOpen] = useState(false)
   const [selection, setSelection] = useState([])
   const close = () => setOpen(false)
   function handleOnClick(item) {
     setSelection([item])
+    item.func()
     close()
   }
 

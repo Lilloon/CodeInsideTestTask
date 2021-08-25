@@ -5,6 +5,8 @@ import Header from './components/Header/Header'
 import styles from './App.module.scss'
 import Footer from './components/Footer/Footer'
 import Content from './components/Content/Content'
+import LoginScreen from './components/LoginScreen/LoginScreen'
+import About from './components/About/About'
 
 function App() {
   return (
@@ -15,8 +17,11 @@ function App() {
           <Route exact path="/">
             <Content />
           </Route>
-          <Route exact path="/login">
-            <></>
+          <Route path="/login">
+            <LoginScreen />
+          </Route>
+          <Route path="/about">
+            <About />
           </Route>
 
         </Switch>

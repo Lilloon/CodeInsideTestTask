@@ -1,5 +1,6 @@
 export const Users = [
   {
+    id: 1,
     login: 'test',
     password: 'test',
     userInfo: {

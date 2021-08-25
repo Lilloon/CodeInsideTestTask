@@ -76,8 +76,8 @@ const Dropdown = ({
         <ul className={styles.dd_list}>
           {
                     items.map((item) => (
-                      <li className={`${styles.dd_list_item} ${isItemInSelection(item) && styles.Selected}`} key={item.id}>
-                        <button type="button" className={isItemInSelection(item) && styles.Selected} onClick={() => handleOnClick(item)}>
+                      <li className={`${styles.dd_list_item} ${isItemInSelection(item) ? styles.Selected : undefined}`} key={item.id}>
+                        <button type="button" className={isItemInSelection(item) ? styles.Selected : undefined} onClick={() => handleOnClick(item)}>
                           <span>{item.value}</span>
                           <span>
                             {}

@@ -19,6 +19,7 @@
     margin-bottom: 20px;
 }
 .componentsContainer{
+
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -31,6 +32,7 @@
     width: 50%;
 }
 .inputs{
+    margin-top: 10px;
     width: 80%;
     @include animSlide;
 

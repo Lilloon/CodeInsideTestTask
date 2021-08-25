@@ -1,0 +1,29 @@
+@import '../../mixins/fonts.scss';
+@import '../../mixins/animations.scss';
+
+.mainContainer{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 30px
+}
+
+.aboutBlock{
+  @include loginAnim;
+  height: max-content;
+  display: flex;
+  justify-content: start;
+  padding: 20px;
+  @include Montserrat;
+  font-size: 22px;
+  width: 40%;
+  background-color: white;
+  border-radius: 10px;
+
+}
+.usersInfo{
+  display: flex;
+  flex-direction: column;
+  line-height: 40px;
+
+}

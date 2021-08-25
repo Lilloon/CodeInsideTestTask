@@ -1,0 +1,31 @@
+@import '../../mixins/fonts.scss';
+
+table {
+    @include Montserrat;
+    table-layout: fixed;
+    line-height: 20px;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 5px;
+    border: 2px solid rgb(190, 184, 184);
+  }
+  tbody{
+    
+tr{
+  transition: 0.2s ease;
+  user-select: none;
+  cursor: pointer;
+  &:hover{
+    background-color: rgb(248, 240, 205);
+  }
+}
+  }
+  .selected{
+    background-color: #FFCD00;
+    &:hover{
+    background-color: #FFCD00;
+
+    }
+  }

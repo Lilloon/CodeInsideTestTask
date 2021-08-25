@@ -1,0 +1,15 @@
+.mainContainer{
+    height: 120px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.dropdownBox{
+    box-sizing: content-box;
+    margin-top: 49px;
+    width: max-content;
+    margin-right: 20px;
+}

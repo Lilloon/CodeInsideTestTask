@@ -1,10 +1,18 @@
+@import '../../mixins/animations.scss';
+@import '../../mixins/animations.scss';
+
+  
+
 .buttons{
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: flex-end;
+    
 }
+
 .mainContent{
+    @include animOpacity;
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -24,8 +32,11 @@
 }
 .inputs{
     width: 80%;
+    @include animSlide;
+
 }
 .addObjectBox{
+    @include animSlide;
     display: flex;
     flex-direction: column;
     align-items: flex-end;

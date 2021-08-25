@@ -4,7 +4,7 @@ table {
     @include Montserrat;
     table-layout: fixed;
     line-height: 20px;
-  border-collapse: collapse;
+    border-collapse: collapse;
   }
 
   th, td {
@@ -14,18 +14,14 @@ table {
   tbody{
     
 tr{
-
   transition: 0.2s ease;
-
   user-select: none;
   cursor: pointer;
   &:hover{
     background-color: rgb(248, 240, 205);
   }
-  
 }
   }
-
   .selected{
     background-color: #FFCD00;
     &:hover{

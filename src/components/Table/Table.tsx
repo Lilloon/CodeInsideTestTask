@@ -23,7 +23,6 @@ const Table: React.FC<TableProps> = ({ objItem = [{}] }) => {
       let tmpSelection = selectedItemsId
       tmpSelection = tmpSelection.filter((itemRemove:any) => itemRemove.id !== item.id)
       dispatch(removeSelection([...tmpSelection]))
-      console.log(tmpSelection)
     }
   }
   function isItemInSelection(item : any) {

@@ -9,6 +9,7 @@ interface InputProps {
   inputsNumber: number,
   type: string,
   errorMessage:string,
+  password: boolean,
 }
 
 const Input: React.FC<InputProps> = ({
@@ -18,6 +19,7 @@ const Input: React.FC<InputProps> = ({
   inputsNumber,
   type,
   errorMessage,
+  password = false,
 }) => {
   const checkType = () => {
     switch (type) {
@@ -46,7 +48,7 @@ const Input: React.FC<InputProps> = ({
       <input
         onChange={handleChange}
         className={`${styles.InputWindow} ${styles.Active} ${checkType()}`}
-        type="text"
+        type={password ? 'password' : 'text'}
         value={value}
       />
     </div>

@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './Header.module.scss'
-import logo from './logo.svg'
 import Dropdown from '../Dropdown/Dropdown'
+import Logo from '../Logo/Logo'
 
 interface RootState {
   user: any,
@@ -25,7 +25,7 @@ const Header = () => {
   }, [user])
   return (
     <div className={styles.mainContainer}>
-      <img className={styles.logo} src={logo} alt="alt" />
+      <Logo />
       <div className={styles.dropdownBox}>
         { headerTitle[0] && (<Dropdown title={`${headerTitle[0]} ${headerTitle[1]}.${headerTitle[2]}.`} />)}
       </div>

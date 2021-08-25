@@ -9,8 +9,7 @@ import TextButton from '../Button/TextButton'
 import Table from '../Table/Table'
 import { addObj, removeObj } from '../../actions/objActions'
 import { clearSelection } from '../../actions/selectedObjActions'
-import { Users } from '../../users'
-import { addUser } from '../../actions/userActions'
+import { Auth } from '../../auth'
 
 interface RootState {
   objList: any,
@@ -22,13 +21,7 @@ const Content: React.FC = () => {
   let history = useHistory()
   const dispatch = useDispatch()
   useEffect(() => {
-    if (!cookies.user) {
-      history.push('/login')
-    } else {
-      Users.forEach((item:any) => {
-        if (item.login === cookies.user.login) dispatch(addUser(item))
-      })
-    }
+    Auth.isAuth(cookies, dispatch, history)
   }, [])
   const selectedItemsRoot = (state : RootState) => state.selectedItem.selectedObj
   const selectedItems = useSelector(selectedItemsRoot)
@@ -94,6 +87,7 @@ const Content: React.FC = () => {
       }
     })
     if (inputsIsOk) {
+      let tmpInputsValue = inputsValue
       setId(curerntId + 1)
       dispatch(addObj({
         id: curerntId + 1,
@@ -104,6 +98,8 @@ const Content: React.FC = () => {
         numOf2: Number(inputsValue[4]),
         missed: Number(inputsValue[5]),
       }))
+      tmpInputsValue = ['', '', '', '', '', '']
+      setInputsValue([...tmpInputsValue])
     }
   }
 

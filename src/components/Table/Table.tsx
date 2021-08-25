@@ -52,7 +52,7 @@ const Table: React.FC<TableProps> = ({ objItem = [{}] }) => {
       </thead>
       <tbody>
         { objItem.map((item:any) => (
-          <tr onClick={() => { handleOnClick(item) }} className={`${isItemInSelection(item) ? styles.selected : undefined}`}>
+          <tr key={item.id} onClick={() => { handleOnClick(item) }} className={`${isItemInSelection(item) ? styles.selected : undefined}`}>
             <td>{item.objName}</td>
             <td>{item.numOf5}</td>
             <td>{item.numOf4}</td>

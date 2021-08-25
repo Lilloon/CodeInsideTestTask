@@ -1,6 +1,9 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useCookies } from 'react-cookie';
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom';
+import { Auth } from '../../auth';
 import styles from './About.module.scss'
 
 interface RootState {
@@ -8,6 +11,12 @@ interface RootState {
 }
 
 const About = () => {
+  const [cookies] = useCookies(['user']);
+  let history = useHistory()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    Auth.isAuth(cookies, dispatch, history)
+  }, [])
   const userRoot = (state : RootState) => state.user.user
   const user = useSelector(userRoot)
   return (

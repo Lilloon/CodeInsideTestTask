@@ -1,5 +1,7 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useCookies } from 'react-cookie'
 import { useSelector, useDispatch } from 'react-redux'
 import styles from './Content.module.scss'
 import Input from '../Input/Input'
@@ -7,6 +9,8 @@ import TextButton from '../Button/TextButton'
 import Table from '../Table/Table'
 import { addObj, removeObj } from '../../actions/objActions'
 import { clearSelection } from '../../actions/selectedObjActions'
+import { Users } from '../../users'
+import { addUser } from '../../actions/userActions'
 
 interface RootState {
   objList: any,
@@ -14,7 +18,18 @@ interface RootState {
 }
 
 const Content: React.FC = () => {
+  const [cookies] = useCookies(['user']);
+  let history = useHistory()
   const dispatch = useDispatch()
+  useEffect(() => {
+    if (!cookies.user) {
+      history.push('/login')
+    } else {
+      Users.forEach((item:any) => {
+        if (item.login === cookies.user.login) dispatch(addUser(item))
+      })
+    }
+  }, [])
   const selectedItemsRoot = (state : RootState) => state.selectedItem.selectedObj
   const selectedItems = useSelector(selectedItemsRoot)
   const listRoot = (state: RootState) => state.objList.ObjList

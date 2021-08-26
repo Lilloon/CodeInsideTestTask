@@ -32,10 +32,6 @@ const Table: React.FC<TableProps> = ({ objItem = [{}] }) => {
     return (false)
   }
 
-  const checkExam = (item:any) => {
-    if ((item.numOf5 * 5 + item.numOf4 * 4 + item.numOf3 * 3 + item.numOf2 * 2) / (item.numOf5 * 1 + item.numOf4 * 1 + item.numOf3 * 1 + item.numOf2 * 1) > 4.2 && item.missed < 8) return ('Получен')
-    return ('Не получен')
-  }
   return (
     <table>
       <caption> Информация студента о получении зачёта</caption>
@@ -46,6 +42,7 @@ const Table: React.FC<TableProps> = ({ objItem = [{}] }) => {
           <th scope="col"> 4 </th>
           <th scope="col"> 3 </th>
           <th scope="col"> 2 </th>
+          <th scope="col"> 1 </th>
           <th scope="col"> Пропущенные занятия </th>
           <th scope="col"> Зачёт </th>
         </tr>
@@ -58,8 +55,9 @@ const Table: React.FC<TableProps> = ({ objItem = [{}] }) => {
             <td>{item.numOf4}</td>
             <td>{item.numOf3}</td>
             <td>{item.numOf2}</td>
+            <td>{item.numOf1}</td>
             <td>{item.missed}</td>
-            <td>{checkExam(item)}</td>
+            <td>{item.exam}</td>
           </tr>
         ))}
       </tbody>

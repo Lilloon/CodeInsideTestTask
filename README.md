@@ -46,4 +46,4 @@ Production build are located on 'production-build' branch.
 
 ## How to start.
 
-In project's folder type "serve".
+Use cmd in project's folder and type "serve".

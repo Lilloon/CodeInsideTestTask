@@ -47,3 +47,6 @@ Production build are located on 'production-build' branch.
 ## How to start.
 
 Use cmd in project's folder and type "serve".
+
+# GH-Pages link.
+https://lilloon.github.io/CodeInsideTestTask/

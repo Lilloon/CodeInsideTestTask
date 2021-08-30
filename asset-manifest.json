@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/CodeInsideTestTask/static/css/main.fc75ec94.chunk.css",
+    "main.js": "/CodeInsideTestTask/static/js/main.61758e2a.chunk.js",
+    "main.js.map": "/CodeInsideTestTask/static/js/main.61758e2a.chunk.js.map",
+    "runtime-main.js": "/CodeInsideTestTask/static/js/runtime-main.617bed08.js",
+    "runtime-main.js.map": "/CodeInsideTestTask/static/js/runtime-main.617bed08.js.map",
+    "static/js/2.7b33a8a1.chunk.js": "/CodeInsideTestTask/static/js/2.7b33a8a1.chunk.js",
+    "static/js/2.7b33a8a1.chunk.js.map": "/CodeInsideTestTask/static/js/2.7b33a8a1.chunk.js.map",
+    "index.html": "/CodeInsideTestTask/index.html",
+    "static/css/main.fc75ec94.chunk.css.map": "/CodeInsideTestTask/static/css/main.fc75ec94.chunk.css.map",
+    "static/js/2.7b33a8a1.chunk.js.LICENSE.txt": "/CodeInsideTestTask/static/js/2.7b33a8a1.chunk.js.LICENSE.txt",
+    "static/media/Table.module.scss": "/CodeInsideTestTask/static/media/Montserrat-SemiBold.fa8441f3.ttf",
+    "static/media/arrowClosed.4c625d53.svg": "/CodeInsideTestTask/static/media/arrowClosed.4c625d53.svg",
+    "static/media/arrowOpened.aff68b00.svg": "/CodeInsideTestTask/static/media/arrowOpened.aff68b00.svg",
+    "static/media/logo.f37eadfe.svg": "/CodeInsideTestTask/static/media/logo.f37eadfe.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.617bed08.js",
+    "static/js/2.7b33a8a1.chunk.js",
+    "static/css/main.fc75ec94.chunk.css",
+    "static/js/main.61758e2a.chunk.js"
+  ]
+}

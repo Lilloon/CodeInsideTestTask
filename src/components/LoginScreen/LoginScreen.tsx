@@ -55,8 +55,8 @@ const LoginScreen = () => {
     <div className={styles.loginScreenMain}>
       <div className={styles.loginContainer}>
         <div className={styles.inputs}>
-          <Input password={false} text="Логин" onChange={onChangeInput} value={inputsValue[0]} type="Any" inputsNumber={0} errorMessage="" />
-          <Input password text="Пароль" onChange={onChangeInput} value={inputsValue[1]} type="Any" inputsNumber={1} errorMessage="" />
+          <Input func={checkUser} password={false} text="Логин" onChange={onChangeInput} value={inputsValue[0]} type="Any" inputsNumber={0} errorMessage="" />
+          <Input func={checkUser} password text="Пароль" onChange={onChangeInput} value={inputsValue[1]} type="Any" inputsNumber={1} errorMessage="" />
         </div>
         <span className={styles.errorMessage}>
           { errorMessage }

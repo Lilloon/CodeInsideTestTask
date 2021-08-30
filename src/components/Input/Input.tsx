@@ -10,6 +10,7 @@ interface InputProps {
   type: string,
   errorMessage:string,
   password: boolean,
+  func:any,
 }
 
 const Input: React.FC<InputProps> = ({
@@ -20,6 +21,7 @@ const Input: React.FC<InputProps> = ({
   type,
   errorMessage,
   password = false,
+  func,
 }) => {
   const checkType = () => {
     switch (type) {
@@ -29,13 +31,16 @@ const Input: React.FC<InputProps> = ({
         )
       case 'number':
         // eslint-disable-next-line no-restricted-globals
-        return isNaN(Number(value)) ? styles.Error : undefined
+        return (isNaN(Number(value)) || Number(value) < 0) ? styles.Error : undefined
       default:
         return undefined
     }
   }
   const handleChange = (e:any) => {
     if (onChange) onChange(e.target.value, inputsNumber);
+  }
+  function handlerOnKeyPressed(e: any) {
+    if (func()) if (e.target.key === 'Enter') func()
   }
   return (
     <div
@@ -50,6 +55,7 @@ const Input: React.FC<InputProps> = ({
         className={`${styles.InputWindow} ${styles.Active} ${checkType()}`}
         type={password ? 'password' : 'text'}
         value={value}
+        onKeyPress={handlerOnKeyPressed}
       />
     </div>
   )

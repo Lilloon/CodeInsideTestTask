@@ -29,7 +29,7 @@ const Input: React.FC<InputProps> = ({
         )
       case 'number':
         // eslint-disable-next-line no-restricted-globals
-        return isNaN(Number(value)) ? styles.Error : undefined
+        return (isNaN(Number(value)) || Number(value) < 0) ? styles.Error : undefined
       default:
         return undefined
     }

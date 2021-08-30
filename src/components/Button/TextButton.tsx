@@ -16,7 +16,7 @@ const TextButton: React.FC<TextButtonProps> = ({
   text, styleButton = 1, func,
 }) => {
   function handlerOnKeyPressed(e: any) {
-    if (func()) if (e.target.key === 'Enter') func()
+    if (func()) if (e.key === 'Enter') func()
   }
   return (
     <button

@@ -68,11 +68,11 @@ const Content: React.FC = () => {
     })
     indexesOfNumber.forEach((item: number) => {
       // eslint-disable-next-line no-restricted-globals
-      if (isNaN(Number(inputsValue[item])) || inputsValue[item].length === 0) {
+      if (isNaN(Number(inputsValue[item])) || inputsValue[item].length === 0 || Number(inputsValue[item]) < 0) {
         // eslint-disable-next-line no-restricted-globals
-        if (isNaN(Number(inputsValue[item]))) {
+        if (isNaN(Number(inputsValue[item])) || Number(inputsValue[item]) < 0) {
           tmpErrorMessages = errorMessages
-          tmpErrorMessages[item] = 'Поле может содержать только числа'
+          tmpErrorMessages[item] = 'Поле может содержать только положительные числа'
           setErrorMessage([...tmpErrorMessages])
         }
         if (inputsValue[item].length === 0) {

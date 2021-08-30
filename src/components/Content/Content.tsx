@@ -143,13 +143,13 @@ const Content: React.FC = () => {
         {isInputsVidible && (
         <div className={styles.addObjectBox}>
           <div className={styles.inputs}>
-            <Input password={false} errorMessage={errorMessages[0]} inputsNumber={0} type="Any" value={inputsValue[0]} text="Название предмета" onChange={onChangeInput} />
-            <Input password={false} errorMessage={errorMessages[1]} inputsNumber={1} type="number" value={inputsValue[1]} text="Количество оценок '5'" onChange={onChangeInput} />
-            <Input password={false} errorMessage={errorMessages[2]} inputsNumber={2} type="number" value={inputsValue[2]} text="Количество оценок '4'" onChange={onChangeInput} />
-            <Input password={false} errorMessage={errorMessages[3]} inputsNumber={3} type="number" value={inputsValue[3]} text="Количество оценок '3'" onChange={onChangeInput} />
-            <Input password={false} errorMessage={errorMessages[4]} inputsNumber={4} type="number" value={inputsValue[4]} text="Количество оценок '2'" onChange={onChangeInput} />
-            <Input password={false} errorMessage={errorMessages[5]} inputsNumber={5} type="number" value={inputsValue[5]} text="Количество оценок '1'" onChange={onChangeInput} />
-            <Input password={false} errorMessage={errorMessages[6]} inputsNumber={6} type="number" value={inputsValue[6]} text="Количество пропущенных занятий" onChange={onChangeInput} />
+            <Input func={() => { onClickAdd([0], [1, 2, 3, 4, 5, 6]) }} password={false} errorMessage={errorMessages[0]} inputsNumber={0} type="Any" value={inputsValue[0]} text="Название предмета" onChange={onChangeInput} />
+            <Input func={() => { onClickAdd([0], [1, 2, 3, 4, 5, 6]) }} password={false} errorMessage={errorMessages[1]} inputsNumber={1} type="number" value={inputsValue[1]} text="Количество оценок '5'" onChange={onChangeInput} />
+            <Input func={() => { onClickAdd([0], [1, 2, 3, 4, 5, 6]) }} password={false} errorMessage={errorMessages[2]} inputsNumber={2} type="number" value={inputsValue[2]} text="Количество оценок '4'" onChange={onChangeInput} />
+            <Input func={() => { onClickAdd([0], [1, 2, 3, 4, 5, 6]) }} password={false} errorMessage={errorMessages[3]} inputsNumber={3} type="number" value={inputsValue[3]} text="Количество оценок '3'" onChange={onChangeInput} />
+            <Input func={() => { onClickAdd([0], [1, 2, 3, 4, 5, 6]) }} password={false} errorMessage={errorMessages[4]} inputsNumber={4} type="number" value={inputsValue[4]} text="Количество оценок '2'" onChange={onChangeInput} />
+            <Input func={() => { onClickAdd([0], [1, 2, 3, 4, 5, 6]) }} password={false} errorMessage={errorMessages[5]} inputsNumber={5} type="number" value={inputsValue[5]} text="Количество оценок '1'" onChange={onChangeInput} />
+            <Input func={() => { onClickAdd([0], [1, 2, 3, 4, 5, 6]) }} password={false} errorMessage={errorMessages[6]} inputsNumber={6} type="number" value={inputsValue[6]} text="Количество пропущенных занятий" onChange={onChangeInput} />
           </div>
           <div className={styles.addButton}>
             <TextButton text="Добавить" func={() => { onClickAdd([0], [1, 2, 3, 4, 5, 6]) }} styleButton={1} />

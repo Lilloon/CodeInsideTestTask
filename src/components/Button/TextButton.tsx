@@ -14,17 +14,23 @@ function handlerClick(func: any) {
 
 const TextButton: React.FC<TextButtonProps> = ({
   text, styleButton = 1, func,
-}) => (
-  <button
-    className={`${styles.TextButton}
+}) => {
+  function handlerOnKeyPressed(e: any) {
+    if (func()) if (e.target.key === 'Enter') func()
+  }
+  return (
+    <button
+      className={`${styles.TextButton}
     ${styleButton === 1 ? styles.Default : undefined}
     ${styleButton === 2 ? styles.OnlyBorders : undefined}
     ${styleButton === 3 ? styles.OnlyText : undefined}`}
-    type="button"
-    onClick={() => handlerClick(func)}
-  >
-    {text}
-  </button>
-)
+      type="button"
+      onClick={() => handlerClick(func)}
+      onKeyPress={handlerOnKeyPressed}
+    >
+      {text}
+    </button>
+  )
+}
 
 export default TextButton

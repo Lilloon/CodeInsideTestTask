@@ -40,7 +40,7 @@ const Input: React.FC<InputProps> = ({
     if (onChange) onChange(e.target.value, inputsNumber);
   }
   function handlerOnKeyPressed(e: any) {
-    if (func()) if (e.target.key === 'Enter') func()
+    if (func()) if (e.key === 'Enter') func()
   }
   return (
     <div
